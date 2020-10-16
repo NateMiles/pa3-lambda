@@ -12,6 +12,8 @@ pip install boto3
 In order to authenticate local test calls you will need your AWS credentials installed locally. Install the AWS CLI and enter your Access Key and Secret Access Key:
 ```
 pip install awscli
-
+```
+then
+```
 aws configure
 ```
