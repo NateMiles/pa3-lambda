@@ -9,14 +9,13 @@ rand = random.randint(1,30)
 sqs = boto3.client('sqs')
 
 def lambda_handler(event, context):
-  # send_message is running to begin with. Sends 1 msg per minute. 
-  # Comment out once you uncomment the randomizer.
-  send_message(str(rand))
+  # randomizer() sends a variable # of messages per minute.
+  # Leave this running the entire time.
+  randomizer()
 
-  # randomizer() is to be uncommented once ready for tracking mode.
-  # Sends a variable # of messages per minute.
-  # randomizer()
-
+  # Uncomment process_messages() and shipment() when you are ready
+  # to test your function at scale!
+  #
   # process_messages() is the function you are to complete, following all 
   # requirements in the PA instructions.
   # process_messages()
@@ -61,6 +60,7 @@ def process_messages():
     2. Read as many messages as possible each time the function is executed, extracting the 
        value of the MessageBody and the value of the "interval" custom MessageAttribute, 
        storing as vars for each message. These are found by using the receive_message method.
+       Remember there may be ways to receive more than one message at a time.
     3. Using the fields you collect, write a new line to the "tracking.csv" file next to this
        function, in comma-separated form. The values should be as follows, in this order:
            a) ApproximateNumberOfMessages (a number)
@@ -68,16 +68,15 @@ def process_messages():
            c) Interval (a custom MessageAttribute, a number)
            d) Time/Date in HH:MM::SS MM/DD/YYYY format.
        Once you complete step 7 below this CSV will be shipped automatically to S3.
-    4. Delete messages once they have been parsed. Delete a message by using the delete_message
-       method, which requires the 'handle' value for each message.
+    4. Delete messages once they have been parsed. boto3 may have more than one method for
+       message deletion. Consult the documentation.
     5. Create sub-functions as needed. Work on your local workstation to dev and test your
        code.
-    6. Once your code achieves those goals, comment out line 14, and uncomment lines 18.
-       Watch your queue until it gets to >500 messages. (This should take only a few mintues.)
-    7. Then uncomment lines 22, and 26. Remember to observe the pace of new messages flowing
-       into the queue. One of the priorities of your function is that it not only keep up
-       with this pace, but steadily catch up to it, so that your queue depth is reduced to
-       almost nothing.
+    6. Once your code achieves those goals, check the number of messages in your queue.
+       If it is far above 500, purge the queue and wait for it to get to 500 again.
+    7. Then uncomment lines 21, and 25 to enable your function and to turn on shipping. 
+       Remember to observe the pace of new messages flowing into the queue. One of the 
+       priorities of your function is that it not only keep up with this pace, but steadily
+       catch up to it, so that your queue depth is reduced to almost nothing.
   """
   print('')
-  # do something
