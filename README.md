@@ -1,6 +1,8 @@
 # PA3 Lambda Function
 
-For use with CS4740 Cloud Computing, Programming Assignment 3.
+For use with [CS4740 Cloud Computing](https://nmagee.github.io/cs4740/), Programming Assignment 3.
+
+![Lambda + SQS Interaction](https://nmagee.github.io/cs4740/images/lambda-sqs.png)
 
 Your function must be Python 3.8 compatible.
 
