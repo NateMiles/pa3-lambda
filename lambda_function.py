@@ -46,20 +46,19 @@ def process_messages():
        value of the MessageBody and the value of the "interval" custom MessageAttribute, 
        storing as vars for each message. These are found by using the receive_message method.
        Remember there may be ways to receive more than one message at a time.
-    3. Using the fields you collect, write a new line to the "tracking.csv" file next to this
-       function, in comma-separated form. The values should be as follows, in this order:
+    3. Using the fields you collect, print() out the values of these three values, in comma-
+       separated form. The values should be as follows, in this order:
            a) ApproximateNumberOfMessages (a number)
            b) MessageBody (a UUID string)
            c) Interval (a custom MessageAttribute, a number)
-           d) Time/Date in HH:MM::SS MM/DD/YYYY format.
-       Once you complete step 7 below this CSV will be shipped automatically to S3.
+       These printed values will be recorded to CloudWatch logs.
     4. Delete messages once they have been parsed. boto3 may have more than one method for
        message deletion. Consult the documentation.
     5. Create sub-functions as needed. Work on your local workstation to dev and test your
        code.
     6. Once your code achieves those goals, check the number of messages in your queue.
-       If it is far above 500, purge the queue and wait for it to get to 500 again.
-    7. Then uncomment lines 21, and 25 to enable your function and to turn on shipping. 
+       If it is far above 1000, purge the queue and wait for it to get to 1000 again.
+    7. Then uncomment lines 21 to enable your function.
        Remember to observe the pace of new messages flowing into the queue. One of the 
        priorities of your function is that it not only keep up with this pace, but steadily
        catch up to it, so that your queue depth is reduced to almost nothing.
