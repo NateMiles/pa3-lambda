@@ -13,16 +13,12 @@ def lambda_handler(event, context):
   # Leave this running the entire time.
   randomizer()
 
-  # Uncomment process_messages() and shipment() when you are ready
-  # to test your function at scale!
+  # Uncomment process_messages() when you are ready to test your function
+  # at scale
   #
   # process_messages() is the function you are to complete, following all 
   # requirements in the PA instructions.
   # process_messages()
-
-  # shipment() is to be uncommented once ready for tracking mode.
-  # Syncs your tracking.csv file to a central S3 bucket.
-  # shipment()
 
 def randomizer():
   for x in range(rand):
@@ -40,17 +36,6 @@ def send_message(rand):
         }
     }
   )
-  print(response)
-
-def shipment():
-  file_name='tracking.csv'
-  bucket='cs4740-assignments'
-  object_name = UVA_ID + '/tracking.csv'
-  s3 = boto3.client('s3')
-  response = s3.upload_file(
-    file_name, bucket, object_name
-    )
-  print(response)
 
 def process_messages():
   """ [YOU MAY DELETE THIS COMMENT]
