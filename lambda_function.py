@@ -3,7 +3,6 @@ import boto3
 import uuid
 import random
 
-UVA_ID = 'YOUR_UVA_ID'
 QURL = 'YOUR_QUEUE_URL'
 rand = random.randint(10,50)
 sqs = boto3.client('sqs')
