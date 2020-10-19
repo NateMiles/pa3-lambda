@@ -4,7 +4,7 @@ To launch the PA for AWS Starter Accounts:
 
 1. STEP 2: Use an alternate stack in AWS CloudFormation and create a stack using this URL: 
 
-    https://s3.amazonaws.com/cs4740-resources/templates/pa3-sqs-lambda-awsstarter.yml
+    https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=pa3&templateURL=https://s3.amazonaws.com/cs4740-resources/templates/pa3-sqs-lambda-awsstarter.yml
 
 2. Give the stack a name such as "pa3" and continue as per the PDF instructions and create your EC2 instance as directed. However, grant your IAM role FULL SQS permissions.
 3. Steps 6-8: Instead of working with AWS Lambda, sudo su to become root and run your own `create_messages.py` script.
