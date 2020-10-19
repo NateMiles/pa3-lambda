@@ -11,7 +11,7 @@ To launch the PA for AWS Starter Accounts, use these modified instructions as yo
 3. Instead of working with AWS Lambda, `sudo su` to become root and run your own `create_messages.py` script.
 4. Copy the enclosed python script and paste it into a new file `/root/create_messages.py`. Be sure to customize line 6 with the value you got from Step 5.
 5. Put the Python3 shebang line at the top of your script (something like `#!/usr/bin/python3`). `chmod` it to 755.
-6. Following the same crontab directions in Step 17 in the PA instructions, put this script on a 1 minute cron schedule of its own.
+6. Following the same crontab directions from Step 17 in the PA instructions, put this script on a 1 minute cron schedule of its own.
 7. Continue from Step 9 and you should see messages arriving in your queue.
 
 That should get your `create_messages.py` script executed every 1 minute as AWS Lambda would have been doing for you.
