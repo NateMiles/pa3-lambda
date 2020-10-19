@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: SQS and Lambda
+Resources:
+  MyQueue:
+    Properties:
+      QueueName: pa3-queue
+      VisibilityTimeout: 60
+    Type: 'AWS::SQS::Queue'
+    DeletionPolicy: Delete
+Outputs:
+  QueueName:
+    Description: The name of the queue
+    Value: !GetAtt 
+      - MyQueue
+      - QueueName
+  QueueURL:
+    Description: The URL of the queue
+    Value: !Ref MyQueue
