@@ -2,7 +2,7 @@
 
 To launch the PA for AWS Starter Accounts:
 
-1. Go to AWS CloudFormation and create a stack using this URL: 
+1. For Step 2, use an alternate stack in AWS CloudFormation and create a stack using this URL: 
 
     https://s3.amazonaws.com/cs4740-resources/templates/pa3-sqs-lambda-awsstarter.yml
 
