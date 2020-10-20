@@ -7,7 +7,7 @@ import random
 
 QURL = 'YOUR_QUEUE_URL'
 rand = random.randint(10,50)
-sqs = boto3.client('sqs')
+sqs = boto3.client('sqs', region_name='us-east-1')
 
 def lambda_handler():
   # randomizer() sends a variable # of messages per minute.
